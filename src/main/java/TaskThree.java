@@ -16,11 +16,7 @@ public class TaskThree {
     }
 
     public static int getMax(int oneNumber, int twoNumber) {
-        if (oneNumber > twoNumber) {
-            return oneNumber;
-        } else {
-            return twoNumber;
-        }
+        return Math.max(oneNumber, twoNumber);
     }
 
     public static double calcPizzaCharge(int size, int meatToppings, int nonMeatToppings, int countPizzaOrder) {

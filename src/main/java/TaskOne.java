@@ -11,20 +11,25 @@ public class TaskOne {
         List<Double> array = new ArrayList<>();
 
         while (true) {
-            System.out.print("Add to order? (Y/N): ");
-            String yesOrNo = scanner.next();
-            if (yesOrNo.equals("Y")) {
-                System.out.print("Enter Price: ");
-                double price = scanner.nextDouble();
-                System.out.print("Enter Quantity: ");
-                int quantity = scanner.nextInt();
-                double result = price * quantity;
-                array.add(result);
-            } else {
-                if (yesOrNo.equals("N")) {
-                    result(array);
-                    break;
+            if (array.size() != 10) {
+                System.out.print("Add to order? (Y/N): ");
+                String yesOrNo = scanner.next();
+                if (yesOrNo.equals("Y")) {
+                    System.out.print("Enter Price: ");
+                    double price = scanner.nextDouble();
+                    System.out.print("Enter Quantity: ");
+                    int quantity = scanner.nextInt();
+                    double result = price * quantity;
+                    array.add(result);
+                } else {
+                    if (yesOrNo.equals("N")) {
+                        result(array);
+                        break;
+                    }
                 }
+            } else {
+                result(array);
+                break;
             }
         }
     }
@@ -36,7 +41,7 @@ public class TaskOne {
         System.out.println("\nGrand Total: $" + d.format(sum));
         for (double v : order) {
             ++n;
-            System.out.print("Item " + n + " subtotal: $" + d.format(v));
+            System.out.println("Item " + n + " subtotal: $" + d.format(v));
         }
     }
 }
