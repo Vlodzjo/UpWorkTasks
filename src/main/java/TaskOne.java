@@ -8,7 +8,7 @@ public class TaskOne {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        List<Double> array = new ArrayList<>();
+        ArrayList<Double> array = new ArrayList<>();
 
         while (true) {
             if (array.size() != 10) {
