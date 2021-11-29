@@ -19,31 +19,21 @@ public class TaskThree {
         return Math.max(oneNumber, twoNumber);
     }
 
-    public static double calcPizzaCharge(int size, int meatToppings, int nonMeatToppings, int countPizzaOrder) {
-        double smallPizza = 6.5;
-        double mediumPizza = 9.5;
-        double largePizza = 11.5;
-        double meatTopping = 3.5;
-        double nonMeatTopping = 1.5;
-        double result = 0.0d;
-        switch (size) {
-            case 1: {
-                result += smallPizza;
+    public static double calcPizzaCharge(int pizzaCode, int meatToppings, int nonMeatToppings, int countPizzaOrder) {
+        PizzaType pizzaType = PizzaType.fromCode(pizzaCode);
+        Pizza pizza = null;
+        switch (pizzaType) {
+            case LARGE:
+                pizza = new LargePizza();
                 break;
-            }
-            case 2: {
-                result += mediumPizza;
+            case MEDIUM:
+                pizza = new MediumPizza();
                 break;
-            }
-            case 3: {
-                result += largePizza;
+            case SMALL:
+                pizza = new SmallPizza();
                 break;
-            }
         }
-        result += meatToppings * meatTopping;
-        result += nonMeatToppings * nonMeatTopping;
-        result *= countPizzaOrder;
-        return result;
+        return pizza.calculatePizzaPrice(meatToppings, nonMeatToppings, countPizzaOrder);
     }
 
     public static void getPizzaInfo() {
@@ -57,7 +47,7 @@ public class TaskThree {
         System.out.print("Enter number of pizzas ordered: ");
         int pizzaOrdered = scanner.nextInt();
 
-        System.out.print("Pizza Total: $" + calcPizzaCharge(
+        System.out.println("Pizza Total: $" + calcPizzaCharge(
                 pizzaSize, meatToppings, nonMeatToppings, pizzaOrdered));
     }
 }
