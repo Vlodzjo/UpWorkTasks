@@ -8,7 +8,7 @@ public class TaskFour {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         System.out.print("Enter array size: ");
-        List<Integer> array = (getIntArray(scanner.nextInt()));
+        List<Integer> array = getIntArray(scanner.nextInt());
         for (Integer number : array) {
             System.out.println(number);
         }

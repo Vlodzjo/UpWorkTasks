@@ -7,7 +7,7 @@ public class TaskTwo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         System.out.print("Enter array size: ");
-        List<Integer> array = (TaskFour.getIntArray(scanner.nextInt()));
+        List<Integer> array = TaskFour.getIntArray(scanner.nextInt());
         averageIntArray(array);
     }
 
