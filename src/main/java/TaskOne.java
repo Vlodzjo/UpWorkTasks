@@ -1,14 +1,16 @@
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TaskOne {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        double[] order = new double[10];
+        List<Double> array = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        while (true) {
             System.out.print("Add to order? (Y/N): ");
             String yesOrNo = scanner.next();
             if (yesOrNo.equals("Y")) {
@@ -17,34 +19,24 @@ public class TaskOne {
                 System.out.print("Enter Quantity: ");
                 int quantity = scanner.nextInt();
                 double result = price * quantity;
-                order[i] = result;
+                array.add(result);
             } else {
                 if (yesOrNo.equals("N")) {
-                    result(order);
+                    result(array);
                     break;
                 }
-            }
-            if (i == 9) {
-                result(order);
             }
         }
     }
 
-    private static void result(double[] order) {
+    private static void result(List<Double> order) {
         DecimalFormat d = new DecimalFormat("##.00");
-        double sum = 0;
         int n = 0;
-        for (double v : order) {
-            sum += v;
-        }
-        System.out.println("Grand Total: $" + d.format(sum));
+        double sum = order.stream().mapToDouble(v -> v).sum();
+        System.out.println("\nGrand Total: $" + d.format(sum));
         for (double v : order) {
             ++n;
-            if (v == 0.0d) {
-                break;
-            } else {
-                System.out.println("Item " + n + " subtotal: $" + d.format(v));
-            }
+            System.out.print("Item " + n + " subtotal: $" + d.format(v));
         }
     }
 }

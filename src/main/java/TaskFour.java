@@ -8,7 +8,8 @@ public class TaskFour {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         List<Integer> array = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
+        int arraySize = getIntArray();
+        for (int i = 0; i < arraySize; i++) {
             System.out.print("Enter next whole number: ");
             int number = scanner.nextInt();
             array.add(number);
@@ -16,6 +17,11 @@ public class TaskFour {
         for (int number : array) {
             System.out.println(number);
         }
+    }
+
+    public static int getIntArray() {
+        Scanner scanner = new Scanner(new InputStreamReader(System.in));
+        return scanner.nextInt();
     }
 
 }
