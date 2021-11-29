@@ -1,5 +1,4 @@
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,7 +7,7 @@ public class TaskTwo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         System.out.print("Enter array size: ");
-        ArrayList<Integer> array = new ArrayList<>(TaskFour.getIntArray(scanner.nextInt()));
+        List<Integer> array = (TaskFour.getIntArray(scanner.nextInt()));
         averageIntArray(array);
     }
 
